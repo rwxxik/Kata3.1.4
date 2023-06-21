@@ -23,6 +23,11 @@ public class UsersController {
         this.passwordEncoder = passwordEncoder;
     }
 
+    @GetMapping()
+    public String redirect() {
+        return "redirect:/login";
+    }
+
     @GetMapping("/user")
     public String showUser(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

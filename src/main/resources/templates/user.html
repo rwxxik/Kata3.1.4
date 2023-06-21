@@ -38,18 +38,18 @@
     <!-- -----------------------------------Left panel start------------------------------------------------ -->
     <div class="row">
         <div class="col-2 bg-white">
-            <div class="d-grid gap-2 mt-2">
-                <a th:each="authority : ${#authentication.getAuthorities()}"
-                   th:if="${authority.getAuthority().contains('ADMIN')}"
-                   class="btn btn-primary" href="/admin" role="button">
-                    Admin
-                </a>
-                <a th:each="authority : ${#authentication.getAuthorities()}"
-                   th:if="${authority.getAuthority().contains('USER')}"
-                   class="btn btn-primary" href="/user" role="button">
-                    User
-                </a>
-            </div>
+            <ul class="nav nav-pills flex-column">
+                <div sec:authorize="hasRole('ADMIN')">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" th:href="@{/admin}">Admin</a>
+                    </li>
+                </div>
+                <div sec:authorize="hasRole('USER')">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" th:href="@{/user}">User</a>
+                    </li>
+                </div>
+            </ul>
         </div>
         <!-- -----------------------------------Left panel end------------------------------------------------ -->
         <div class="col vh-100" style="padding-left: 40px; padding-right: 40px">

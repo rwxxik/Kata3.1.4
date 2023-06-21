@@ -47,10 +47,6 @@ public class AdminController {
     @PatchMapping("/{id}")
     public String updateUser(@ModelAttribute("user") User user,
                              @PathVariable("id") int id) {
-//        if (bindingResult.hasErrors()) {
-//            return "editUserForm";
-//        }
-
         userService.updateUser(id, user);
         return "redirect:/admin";
     }
