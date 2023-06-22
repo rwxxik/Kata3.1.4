@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.entity.Role;
 import ru.kata.spring.boot_security.demo.entity.User;
 import ru.kata.spring.boot_security.demo.security.UserDetailsImpl;
+import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.RoleServiceImpl;
+import ru.kata.spring.boot_security.demo.service.UserService;
 import ru.kata.spring.boot_security.demo.service.UserServiceImpl;
 
 import java.util.List;
@@ -17,8 +19,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-     private final UserServiceImpl userService;
-     private final RoleServiceImpl roleService;
+     private final UserService userService;
+     private final RoleService roleService;
 
     @Autowired
     public AdminController(UserServiceImpl userService, RoleServiceImpl roleService) {
