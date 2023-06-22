@@ -14,13 +14,11 @@ import ru.kata.spring.boot_security.demo.service.UserServiceImpl;
 @Controller
 public class UsersController {
 
-    private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
 
     @Autowired
-    public UsersController(UserServiceImpl userService, PasswordEncoder passwordEncoder) {
-        this.userService = userService;
+    public UsersController(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
 
